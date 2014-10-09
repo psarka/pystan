@@ -2,23 +2,11 @@
 # https://github.com/travis-ci/travis-ci/issues/2312
 language: c
 os:
-  - linux
   - osx
 compiler:
   - clang
-  - gcc
 env:
-  - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^test_rstan'
-  - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^(?!test_rstan).*'
-  - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^test_rstan'
-  - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^(?!test_rstan).*'
   - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^test_rstan'
   - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^(?!test_rstan).*'
-notifications:
-  email:
-    recipients:
-      - stan-buildbot@googlegroups.com
-    on_success: change
-    on_failure: always
 install: source continuous_integration/install.sh
 script: bash continuous_integration/test_script.sh
