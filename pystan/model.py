@@ -283,6 +283,8 @@ class StanModel:
             outfile.write(s)
 
         extra_compile_args = ['-O3', '-ftemplate-depth-256']
+        if sys.platform == 'darwin':
+            extra_compile_args += ['-stdlib=libstdc++', '-mmacosx-version-min=10.6']
         distutils.log.set_verbosity(verbose)
         extension = Extension(name=module_name,
                               language="c++",

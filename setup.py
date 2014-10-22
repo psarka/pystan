@@ -112,6 +112,8 @@ libstan_sources = [
 ]
 
 libstan_extra_compile_args = ['-O3', '-ftemplate-depth-256']
+if sys.platform == 'darwin':
+    libstan_extra_compile_args += ['-stdlib=libstdc++', '-mmacosx-version-min=10.6']
 
 libstan = ('stan', {'sources': libstan_sources,
                     'include_dirs': stan_include_dirs,
@@ -120,6 +122,8 @@ libstan = ('stan', {'sources': libstan_sources,
 
 ## extensions
 extensions_extra_compile_args = ['-O0', '-ftemplate-depth-256']
+if sys.platform == 'darwin':
+    extensions_extra_compile_args += ['-stdlib=libstdc++', '-mmacosx-version-min=10.6']
 
 stanc_sources = [
     "pystan/stan/src/stan/gm/ast_def.cpp",
