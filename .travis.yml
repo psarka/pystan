@@ -8,11 +8,14 @@ compiler:
   - gcc
 env:
   - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^test_rstan'
-  - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^(?!test_rstan).*'
+  - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^test_pickle'
+  - TRAVIS_PYTHON_VERSION=2.7 TEST_SUITE_REGEX='^(?!test_rstan|test_pickle).*'
   - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^test_rstan'
-  - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^(?!test_rstan).*'
+  - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^test_pickle'
+  - TRAVIS_PYTHON_VERSION=3.3 TEST_SUITE_REGEX='^(?!test_rstan|test_pickle).*'
   - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^test_rstan'
-  - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^(?!test_rstan).*'
+  - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^test_pickle'
+  - TRAVIS_PYTHON_VERSION=3.4 TEST_SUITE_REGEX='^(?!test_rstan|test_pickle).*'
 notifications:
   email:
     recipients:
